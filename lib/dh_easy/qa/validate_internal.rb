@@ -1,4 +1,4 @@
-module AeEasy
+module DhEasy
   module Qa
     class ValidateInternal
       attr_reader :scraper_name, :collections, :rules, :outputs
@@ -95,7 +95,7 @@ module AeEasy
       end
 
       def collection_response
-        @collection_response || AnswersEngine::Client::ScraperJobOutput.new.collections(scraper_name)
+        @collection_response || Datahen::Client::ScraperJobOutput.new.collections(scraper_name)
       end
     end
 
@@ -134,7 +134,7 @@ module AeEasy
 
       def most_recent_finished_job
         @most_recent_finished_job ||= begin
-                                        jobs_response = AnswersEngine::Client::ScraperJob.new.all(scraper_name)
+                                        jobs_response = Datahen::Client::ScraperJob.new.all(scraper_name)
                                         if jobs_response.code == 200
                                           jobs_response.parsed_response.sort_by { |job| job['created_at'] }.reverse.find{|job| job['status'] == 'active' || job['status'] == 'done' }
                                         else
@@ -148,7 +148,7 @@ module AeEasy
                     data = []
                     page = 1
                     while data.count < total_records
-                      records = AnswersEngine::Client::JobOutput.new(per_page:500, page: page).all(most_recent_finished_job['id'], collection_name).parsed_response
+                      records = Datahen::Client::JobOutput.new(per_page:500, page: page).all(most_recent_finished_job['id'], collection_name).parsed_response
                       sleep 1
                       if records
                         records.each do |record|

@@ -1,4 +1,4 @@
-module AeEasy
+module DhEasy
   module Qa
     module Helpers
       def add_errored_item(data_hash, field_to_validate, validation)

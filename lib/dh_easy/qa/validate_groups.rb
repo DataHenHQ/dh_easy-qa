@@ -1,4 +1,4 @@
-module AeEasy
+module DhEasy
   module Qa
     class ValidateGroups
       attr_reader :data, :scraper_name, :collection_name, :errors

@@ -1,4 +1,4 @@
-module AeEasy
+module DhEasy
   module Qa
     class ValidateType
       include Helpers

@@ -1,4 +1,4 @@
-module AeEasy
+module DhEasy
   module Qa
     class ValidateValue
       include Helpers

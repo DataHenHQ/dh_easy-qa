@@ -1,4 +1,4 @@
-module AeEasy
+module DhEasy
   module Qa
     class SaveOutput
       attr_reader :total_items, :rules, :errors, :collection_name,

@@ -1,4 +1,4 @@
-module AeEasy
+module DhEasy
   module Qa
     class ValidateExternal
       attr_reader :data, :errors, :rules, :outputs, :collection_name, :options
